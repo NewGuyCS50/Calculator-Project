@@ -11,7 +11,15 @@ function multiply(a,b){
 }
 
 function divide(a,b){
+    if (b != "0"){
     return a/b;
+    }
+
+    else {return "you can't do that";}
+    
+
+
+
 }
 
 function operate (a,b, operator){
@@ -69,6 +77,7 @@ buttonOperators.forEach((button)=>{
     button.addEventListener("click", ()=>{
 
         if (operator != ""){
+            
             for (let i = 0; i < divDisplay.textContent.length; i++){
                 if(divDisplay.textContent[i] == operator){
                     firstNum = divDisplay.textContent.slice(0,i)
@@ -83,14 +92,22 @@ buttonOperators.forEach((button)=>{
             
             console.log(firstNum)
             console.log(secondNum)
+
+             if (secondNum = "0"){
+                divDisplay.textContent = "No dividing by zero"
+             }
+           
             let result = operate(+firstNum,+secondNum,operator)
             divDisplay.textContent = result
             // Clear the operator
             operator = ""
+           
         }
-     
+      
+
         divDisplay.textContent = `${divDisplay.textContent}${button.textContent}`
         operator = button.textContent
+       
     
     
     
